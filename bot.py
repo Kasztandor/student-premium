@@ -101,4 +101,14 @@ async def on_message(message):
     if len(message.mentions) > 0 and message.mentions[0] == bot.user and (msgLowercaseNoPolish.find("przedstaw sie") != -1):
         await message.channel.send("Siema! Jestem sobie botem napisanym przez Kasztandora i tak sobie tutaj działam i robię co do mnie należy. Pozdrawiam wszystkich i życzę udanego dnia!")
 
+    if (msg.startswith("!addemoji ")):
+        msgprogress = msg.removeprefix("!addemoji ")
+        msgprogress = msgprogress.split(" ")
+        if (len(msgprogress) == 2):
+            #adding selected emoji to message with id
+            emoji = msgprogress[0]
+            id = msgprogress[1]
+            await message.add_reaction(emoji)
+
+
 bot.run(env.TOKEN)
