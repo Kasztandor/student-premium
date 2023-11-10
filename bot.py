@@ -109,6 +109,12 @@ async def on_message(message):
             emoji = msgprogress[0]
             id = msgprogress[1]
             await message.add_reaction(emoji)
+    
+    if message.channel.id == 1147280355410329741 and message.author.id != bot.user.id:
+        message.channel.send("test"+str(message.attachments.count))
+        if len(message.attachments) or message.content.startswith("j:") or "https://" in message.content or "http://" in message.content:
+            await message.add_reaction("\U0001F44D")
+            await message.add_reaction("\U0001F44E")
 
 
 bot.run(env.TOKEN)
